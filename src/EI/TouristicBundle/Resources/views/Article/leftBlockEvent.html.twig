@@ -1,0 +1,22 @@
+<div class=" row mb20">
+
+    <div class="col-md-7 col-sm-12 ">    
+        {% if event.images is not null %}
+        
+            {% for image in event.images%}
+                <div class="row">
+                    <img class="event-photo" src="{{asset(image.webPath)}}" alt="{{ image.alt }}" />
+                </div>
+            
+            {% endfor %}
+         {% endif %}
+    </div>
+    <div class="col-md-5 col-sm-12"> 
+        <h2 class="title-h2-underline ">{{ event.title }}</h2>
+        <p>{{ event.content }}</p>
+         <p class="comment-btn"><a target="_blank" href="{{ path('ei_touristic_viewMoreEvent', {'id': event.id}) }}">Voir plus</a></p>
+    </div>
+</div>
+    
+
+

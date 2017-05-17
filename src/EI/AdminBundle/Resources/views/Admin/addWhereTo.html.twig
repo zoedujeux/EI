@@ -1,0 +1,14 @@
+{% extends "EIAdminBundle::layout.html.twig" %}
+
+
+
+{% block title %}
+    {{ whereTo.title}}
+{% endblock %}
+
+{% block content %}
+
+  {{ include("EIAdminBundle:Admin:form.html.twig") }}
+
+<a href="{{ path('ei_admin_viewBR') }}" id="create" class="btn btn-success">Voir/ Ajouter/ Modifier/ Supprimer un bar/restaurant</a>
+{% endblock %}

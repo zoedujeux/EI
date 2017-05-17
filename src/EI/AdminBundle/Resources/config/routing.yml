@@ -1,0 +1,107 @@
+#
+#HOMEPAGE
+#
+ei_admin_homepage:
+    path:     /admin
+    defaults: { _controller: EIAdminBundle:Admin:index }
+    
+ei_admin_viewHome:
+    path:   /viewHome
+    defaults: { _controller: EIAdminBundle:Admin:viewHome}
+
+ei_admin_addHome:
+    path:   /addHome
+    defaults: { _controller: EIAdminBundle:Admin:addHome}
+    
+ei_admin_editHome:
+    path:   /editHome/{id}
+    defaults: { _controller: EIAdminBundle:Admin:editHome}
+    
+ei_admin_deleteHome:
+    path:   /deleteHome/{id}
+    defaults: { _controller: EIAdminBundle:Admin:deleteHome}
+
+#
+#BAR & RESTAURANT
+#
+
+ei_admin_viewBR:
+    path:   /viewBR
+    defaults: { _controller: EIAdminBundle:Admin:viewBR}
+    
+ei_admin_addBR:
+    path:     /addBR
+    defaults: { _controller: EIAdminBundle:Admin:addBR}
+    
+ei_admin_editBR:
+    path:   /editBR/{id}
+    defaults: { _controller: EIAdminBundle:Admin:editBR}
+    
+ei_admin_deleteBR:
+    path:   /deleteBR/{id}
+    defaults: { _controller: EIAdminBundle:Admin:deleteBR}
+
+#
+#WHERE TO (EAT, DRINK, JOURNEY)
+#
+ei_whereTo_viewWhereTo:
+    path:   /viewWhereTo/{whereToId}
+    defaults: { _controller: EIAdminBundle:WhereTo:viewWhereTo}
+
+#
+#CATEGORY
+#
+ei_category_viewCategory:
+    path:   /viewCategory
+    defaults: { _controller: EIAdminBundle:Category:viewCategory}
+
+ei_category_addCategory:
+    path:   /addCategory
+    defaults: { _controller: EIAdminBundle:Category:addCategory}
+    
+ei_category_editCategory:
+    path:   /editCategory/{id}
+    defaults: { _controller: EIAdminBundle:Category:editCategory}
+    
+ei_category_deleteCategory:
+    path:   /deleteCategory/{id}
+    defaults: { _controller: EIAdminBundle:Category:deleteCategory}
+
+#
+#USER
+#
+ei_admin_viewUserPage:
+    path:   /userPage
+    defaults: { _controller: EIAdminBundle:Admin:viewUserPage}
+    
+ei_admin_addUserPage:
+    path:   /addUserPage
+    defaults: { _controller: EIAdminBundle:Admin:addUserPage}
+    
+ei_admin_editUserPage:
+    path:   /editUserPage/{id}
+    defaults: { _controller: EIAdminBundle:Admin:editUserPage}
+    
+ei_admin_deleteUserPage:
+    path:   /deleteUserPage/{id}
+    defaults: { _controller: EIAdminBundle:Admin:deleteUserPage}
+
+#
+#EVENTS
+#
+ei_admin_viewEvent:
+    path:   /viewEvent
+    defaults: { _controller: EIAdminBundle:Admin:viewEvent}
+
+ei_admin_addEvent:
+    path:   /addEvent
+    defaults: { _controller: EIAdminBundle:Admin:addEvent}
+    
+ei_admin_editEvent:
+    path:   /editEvent/{id}
+    defaults: { _controller: EIAdminBundle:Admin:editEvent}
+    
+ei_admin_deleteEvent:
+    path:   /deleteEvent/{id}
+    defaults: { _controller: EIAdminBundle:Admin:deleteEvent}
+

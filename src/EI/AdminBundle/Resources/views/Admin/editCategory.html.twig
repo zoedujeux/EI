@@ -1,0 +1,21 @@
+{% extends "EIAdminBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier la catégorie
+{% endblock %}
+
+{% block content %}
+
+
+  {{ include("EIAdminBundle:Admin:form.html.twig") }}
+
+
+  <p>
+    <a href="{{ path('ei_category_viewCategory', {'id': category.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour 
+    </a>
+  </p>
+
+{% endblock %}
+

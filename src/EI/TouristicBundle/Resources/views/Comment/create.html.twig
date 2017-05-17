@@ -1,0 +1,8 @@
+{#{% extends 'EITouristicBundle::layout.html.twig' %}
+
+
+
+{% block contentPage %}
+    <h1>Add comment for blog post "{{ comment.br.title }}"</h1>
+    {% include 'EITouristicBundle:Comment:form.html.twig' with { 'form': form } %}
+{% endblock %}#}

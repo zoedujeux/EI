@@ -1,0 +1,41 @@
+ {% extends "EITouristicBundle::layout.html.twig" %}
+ 
+ {% block contentPage %}
+    {% for userPage in listUserPage %}
+        <div class="section-top-wrapper">
+            <div class="container-fluid">
+                <div class="section-content text-center">
+                    <h1 class="title-underline">{{ userPage.title }}</h1>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <h2> {{ app.user.username }} ! </h2><br/>
+
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+
+                        {% endif %}
+                    <p>{{ userPage.content }}</p>
+                </div>
+            </div>
+        </div>
+
+       <div class="section-top">
+        <h1 class="title-underline">Ce que vous avez sélectionné :</h1>
+       </div>
+        <section class="section-bottom section-content" id="section-content">
+            <div class="container-fluid mt50">
+                <div class="row mb20">
+                    <div class="col-md-7 col-sm-12">
+                        <img class="event-photo" src="../images/food-afternoon/tarte-quiche.jpg" alt="tarte et quiche" />
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                        <h2 class="title-h2-underline">Tarte & Quiche</h2>
+                        <p>Adresse : Rue de la Casquette 4, 4000 Liège</p>
+                        <p>Horaires d'ouverture : <br>lun-ven: 09:00 - 18:00<br>sam: 09:30 - 18:30</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

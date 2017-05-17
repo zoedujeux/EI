@@ -1,0 +1,33 @@
+{% extends "EITouristicBundle::layout.html.twig" %}
+
+
+{% block contentPage %}
+    
+    {% for home in listHome %}
+        <div class="section-top-wrapper">
+            <div class="container-fluid">
+                <div class="section-content text-center">
+                    <h1 class="title-underline">{{ home.mainTitle}}</h1>
+                    <p>{{ home.content|raw }} </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+<section class="section-bottom section-content" id="section-content">
+        <div class="container-fluid">
+            <h1 class="title-underline">Évenement à venir</h1>
+
+            {% for event in listEvent %}
+                {% if loop.index is even %}
+              {{ include("EITouristicBundle:Article:rightBlockEvent.html.twig") }}  
+              {% else %} 
+              {{ include("EITouristicBundle:Article:leftBlockEvent.html.twig") }}    
+              {% endif %}
+            {% endfor %}
+
+        </div>
+        
+</section>
+    
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "EIAdminBundle::layout.html.twig" %}
+
+{% block title %}
+Event
+{% endblock %}
+
+{% block content %}
+    
+ <div class="row">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre</th>
+                                        <th>Contenu</th>
+                                        <th>Image</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                        {% for event in listEvent %}
+                                            <tr>
+                                        <td>{{ event.id }}</td> 
+                                        <td>{{ event.title }}</td> 
+                                        <td>{{ event.content }}</td>
+                                        <td>{% if not event.images.empty %}
+                                                  {% for image in event.images %}
+                                                    {{ image.file }}{% if not loop.last %}, {% endif %}
+                                                  {% endfor %}
+                                              {% endif %}</td>
+                                        <td><a href="{{ path('ei_admin_editEvent', {'id': event.id}) }}" id="edit" class="btn btn-success">modifier</a>
+                                            <a href="{{ path('ei_admin_deleteEvent', {'id': event.id}) }}" id="delete" class="btn btn-success">supprimer</a></td>
+
+                                    </tr>
+                                        {% endfor %}
+                                        
+                                        
+                                        
+                                    
+                                </tbody>
+                            </table>
+                                    
+                                    <a href="{{ path('ei_admin_addEvent') }}" id="create" class="btn btn-success">Créer une nouvelle catégorie</a>
+                        </div>
+                    </div>
+     
+     
+     
+ </div>
+
+{% endblock %}
+
+
+

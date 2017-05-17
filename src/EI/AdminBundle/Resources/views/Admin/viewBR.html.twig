@@ -1,0 +1,58 @@
+{% extends "EIAdminBundle::layout.html.twig" %}
+
+{% block title %}
+Bar et restaurant
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre</th>
+                                        <th>Content</th>
+                                        <th>Image</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                        {% for br in listBR %}
+                                        <tr>
+                                            <td>{{ br.id }}</td> 
+                                            <td>{{ br.title }}</td> 
+                                            <td>{{ br.content }}</td>
+
+                                           <td>{% if not br.images.empty %}
+                                                  {% for image in br.images %}
+                                                    {{ image.file }}{% if not loop.last %}, {% endif %}
+                                                  {% endfor %}
+                                              {% endif %}
+                                               
+                                            </td>
+
+                                            <td><a href="{{ path('ei_admin_editBR', {'id': br.id} ) }}" id="edit" class="btn btn-success">modifier</a>
+                                                <a href="{{ path('ei_admin_deleteBR', {'id': br.id} ) }}" id="delete" class="btn btn-success">supprimer</a></td>
+
+                                        </tr>
+                                        {% endfor %}
+
+                                    
+                                </tbody>
+                            </table>
+                                    
+                                    <a href="{{ path('ei_admin_addBR') }}" id="create" class="btn btn-success">Ajouter un bar ou un restaurant</a>
+                        </div>
+                    </div>
+     
+     
+     
+ </div>
+                                    
+
+{% endblock %}         

@@ -1,0 +1,47 @@
+{% extends "EITouristicBundle::layout.html.twig" %}
+
+
+{% block contentPage %}
+    
+    
+    <div class="section-top">
+            <h1 class="title-underline">Où voulez vous manger ?</h1>
+            <div class="arrowBack">
+                 {% image '@EITouristicBundle/Resources/public/images/arrow-left.png'
+                     output='/images/arrow-left.png' %}
+                     <a href="{{ path('ei_touristic_eatChoice') }}">
+                         <img class="arrowLeft mr10" src="{{ asset_url }}" alt="arrow-left"/>
+                         <p>Retour menu</p>
+                     </a>
+                {% endimage %}
+            </div>
+
+            <div class="arrowNext">
+                {% image '@EITouristicBundle/Resources/public/images/arrow-right.png'
+                     output='/images/arrow-right.png' %}
+                     <a href="#">
+                         <img class="arrowRight ml10" src="{{ asset_url }}" alt="arrow-right"/>
+                         <p>Midi</p>
+                     </a>
+                {% endimage %}
+            </div>
+        <div class="clear"></div>
+    </div>
+        
+    <section  class="section-bottom section-content" id="section-content">
+        <div class="container-fluid mt50">
+                {% for br in listBR %}
+                    {% if loop.index is even %}
+                        {{ include("EITouristicBundle:Article:rightBlockBR.html.twig") }}  
+                        {% else %} 
+                        {{ include("EITouristicBundle:Article:leftBlockBR.html.twig") }}    
+                    {% endif %}
+                {% endfor %}
+            <div class="map">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1oR3VmhwMhBDJWouA_qYr9r1ummo" width="100%" height="480"></iframe>
+            </div>
+        </div>
+    </section>
+
+            
+{% endblock %}

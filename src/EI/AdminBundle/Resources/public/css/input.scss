@@ -1,0 +1,184 @@
+@import 'mixins';
+@import 'variables';
+@import 'header';
+@import 'section';
+@import 'footer';
+@import 'sectionHome';
+@import 'slider';
+@import 'commentSection';
+
+/******************************************
+**************** GENERAL ******************
+*******************************************/
+body{
+    margin: 0;
+    color: $primary-color3;
+    font-family: $main-font;
+}
+/* by example in language section and social*/
+.small-circle{
+    @include border-radius(50%);
+    width: 20px;
+    height: 20px;
+} 
+
+.clear{
+    clear: both;
+}
+
+/******************************************
+**************** TITLE ******************
+*******************************************/
+h1{
+    font-family: $main-font;
+    color: $main-color-text;
+    text-align: center;
+    margin: 0 0 45px 0;
+}
+@media screen and (max-width:768px) {
+    h1{
+        font-size: 25px;
+    }
+    .choiceText{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:500px) {
+     h1{
+        font-size: 20px;
+    }
+    .choiceText{
+        font-size: 20px;
+    }
+}
+.title-underline:before{
+    display:block;
+    clear:both;
+    content : "";
+    position: relative;
+    left    : 0;
+    bottom  : 0;
+    height  : 1px;
+    width   : 100%;  
+    border-top:1px solid #d9d9d9;
+    margin:0 auto;
+    padding:10px 0px;
+}
+
+.title-h2-underline:after{
+    display:block;
+    clear:both;
+    content : "";
+    position: relative;
+    left    : 0;
+    bottom  : 0;
+    height  : 1px;
+    width   : 100%;  
+    border-bottom:1px solid #d9d9d9;
+    margin:0;
+    padding:4px 0px;
+}
+
+.text-center{
+ text-align: center;   
+}
+.section-top-wrapper{
+   padding: 20px 0; 
+}
+
+.section-bottom{
+    background-color: $light-grey;
+}
+.section-content{
+    width: 70%;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.dividing-line{
+    width: 50%;
+}
+
+.event-photo{
+    width: 100%;
+    height: 100%;
+}
+.background-row{
+    background-color: $light-green;
+}
+
+.toTop{
+    background-color: $primary-color2;
+    border: 2px solid $primary-color2;
+    float: right;
+    width: 50px;
+    height: 50px;  
+    text-align: center;
+    z-index: 4;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff; 
+    margin : 10px 20px;
+    padding: 3px;
+    -webkit-transition: .5s; 
+    transition: .5s;
+    i{
+        color: #fff;
+    }
+    &:hover{
+        background-color: #fff; 
+        i{
+            color: $primary-color2;  
+            
+        }
+    }
+}
+/************************
+*********MARGIN-TOP*****
+************************/
+.mt10{
+    margin-top: 10px;   
+}
+
+.mt20{
+    margin-top: 20px;   
+}
+
+.mt50{
+    margin-top: 50px;   
+}
+
+/************************
+*********MARGIN-BOTTOM*****
+************************/
+.mb20{
+    margin-bottom: 20px;
+}
+
+.mb50{
+    margin-bottom: 50px;
+}
+/************************
+*********MARGIN-RIGHT*****
+************************/
+.mr10{
+    margin-right: 10px;
+}
+
+/************************
+*********MARGIN-left*****
+************************/
+.ml10{
+    margin-left: 10px;
+}
+
+.map{
+    margin-top: 20px;
+}
+
+
+
+
+
+
+

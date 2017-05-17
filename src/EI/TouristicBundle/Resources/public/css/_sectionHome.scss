@@ -1,0 +1,29 @@
+.choiceText{
+    font-family: $main-font;
+    color:$primary-color2;
+    font-size: 35px;
+    text-decoration: none;
+    margin-top: 10px;   
+}
+
+.choicePartDay a:hover{
+    text-decoration: none;
+}
+
+.choicePartDay a:hover p{
+    color: $primary-color3;
+}
+
+.choiceDayImage{
+    width: 183px;
+    height: 431px;
+}
+@media screen and (max-width:768px) {
+    .choiceDayImage{
+        width: 140px;
+        height: 320px;
+    }
+}
+
+
+

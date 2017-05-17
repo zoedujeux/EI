@@ -1,0 +1,51 @@
+ei_touristic_home:
+    path:     /index
+    defaults: { _controller: EITouristicBundle:Article:index }
+    
+ei_touristic_eatChoice:
+    path:     /eatChoice
+    defaults: { _controller: EITouristicBundle:Article:eatChoice }
+    
+ei_touristic_eat:
+    path:     /eat
+    defaults: { _controller: EITouristicBundle:Article:eat }
+
+ei_touristic_drinkChoice:
+    path:     /drinkChoice
+    defaults: { _controller: EITouristicBundle:Article:drinkChoice }
+    
+ei_touristic_drink:
+    path:     /drink
+    defaults: { _controller: EITouristicBundle:Article:drink }
+    
+ei_touristic_journeyChoice:
+    path:     /journeyChoice
+    defaults: { _controller: EITouristicBundle:Article:journeyChoice }
+    
+ei_touristic_journey:
+    path:     /journey
+    defaults: { _controller: EITouristicBundle:Article:journey }
+    
+ei_touristic_viewMoreEvent:
+    path:     /viewMoreEvent/{id}
+    defaults: { _controller: EITouristicBundle:Article:viewMoreEvent }
+
+ei_touristic_viewUserPage:
+    path:     /viewUserPage
+    defaults: { _controller: EITouristicBundle:Article:viewUserPage }
+    
+ei_touristic_viewMoreBR:
+    path:     /viewMoreBR/{id}
+    defaults: { _controller: EITouristicBundle:Article:viewMoreBR }
+    
+#ei_touristic_addComment:
+#    path:     /addComment/{br_id}
+#    defaults: { _controller: EITouristicBundle:Comment:addComment }
+    
+#ei_touristic_getBR:
+#    path:     /getBR/{br_id}
+#    defaults: { _controller: EITouristicBundle:Comment:getBR }
+    
+
+    
+

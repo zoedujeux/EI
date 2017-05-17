@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Liège</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+        <link rel="stylesheet" href="{{asset('bundles/eitouristic/css/output.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{asset( 'bundles/eitouristic/libs/bootstrapv3/css/bootstrap.min.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{asset('bundles/eitouristic/libs/font-awesome/css/font-awesome.min.css') }}" type="text/css" />
+        {% stylesheets '@FOSCommentBundle/Resources/public/css/comments.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        <!--<link rel="stylesheet" href="{{asset('FOSCommentBundle/Resources/assets/css/comments.css') }}" type="text/css" />-->
+       {# {% stylesheets 
+            'bundles/eitouristic/css/output.css'
+            'bundles/eitouristic/libs/bootstrapv3/css/bootstrap.min.css'
+            'bundles/eitouristic/libs/font-awesome/css/font-awesome.min.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}  #}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,600,400italic,300,300italic' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+     
+    <div class="header-top"  id="top">
+        <div class="logo-foodies">
+           
+                {% image '@EITouristicBundle/Resources/public/images/logo-liege-gourmand.svg'
+                     output='/images/logo-liege-gourmand.svg' %}
+                     <a href="home.html"><img src="{{ asset_url }}" alt="logo-liege"/> </a>
+                {% endimage %} 
+            
+        </div>
+        <div class="userWrapper">         
+            <div class="user-profil"><a href="#"><i class="fa fa-user fa-2x user" aria-hidden="true"></i></a></div>
+            <div id="toggle-user" class="connect">
+                <ul >
+                    <li> <a href="{{ path('fos_user_registration_register') }}" class=" user user-inscription">S'inscrire</a></li>
+                    <li> <a href="{{ path('fos_user_security_login') }}" class="user user-connexion">Se connecter</a></li>    
+                    <li> <a href="{{ path('ei_touristic_viewUserPage') }}" class="user user-page">Ma page</a></li>
+                </ul> 
+            </div>
+        </div>
+        <div class="language-wrapper">
+            <a class="small-circle fr language-circle " href="#">FR</a>
+            <a class="small-circle en language-circle " href="#">EN</a>
+        </div>
+        
+
+        <div class="clear"></div>
+    </div>
+    <header>
+        <!--<a href="home.html" class="logo">
+            <img src="../images/logo.png" alt="logo-liege" />
+        </a>-->
+    </header>
+    <div id="nav-fixed" class=" container-fluid nav-fixed">
+        <a id="navbar-responsive" class="navbar-toggle" data-toggle="collapse" data-target="#nav-wrapper">&#9776;</a>
+        <div class="clear"></div>
+        <nav id="nav-wrapper" class="topnav">
+            <ul class="navbar-menu" id="navbar-collapse">
+                <li class="menu__item {% if app.request.attributes.get('_route') == 'ei_touristic_home' %}menu__item--current{% endif %}">
+                    <a href="{{ path('ei_touristic_home') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_home' %} menu__link--current{% endif %}">Accueil</a>
+                </li>
+                <li class="menu__item {% if app.request.attributes.get('_route') == 'ei_touristic_eatChoice' %}menu__item--current{% endif %}">
+                    <a href="{{ path('ei_touristic_eatChoice') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_eatChoice' %} menu__link--current{% endif %}">Où manger</a>
+                </li>
+                <li class="menu__item {% if app.request.attributes.get('_route') == 'ei_touristic_drinkChoice' %}menu__item--current{% endif %}">
+                    <a href="{{ path('ei_touristic_drinkChoice') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_drinkChoice' %} menu__link--current{% endif %}">Où boire un verre</a>
+                </li>
+                <li class="menu__item{% if app.request.attributes.get('_route') == 'ei_touristic_journeyChoice' %}menu__item--current{% endif %}">
+                    <a href="{{ path('ei_touristic_journeyChoice') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_journeyChoice' %} menu__link--current{% endif %}">Parcours thématique</a>
+                </li>
+            </ul> 
+        </nav>
+    </div>
+
+    <div class="clear"></div>
+    
+    
+        {% block contentPage %}
+        {% endblock %}
+
+    <a class="toTop" href="#top"><i class="fa fa-arrow-up fa-3x" aria-hidden="true"></i></a>
+    <div class="clear"></div>
+    
+     <footer>
+        <div class="container-fluid">
+            <div class="row  contact">
+                <div class="col-sm-4 phone-mail text-center">
+                    <p>Tél. : +32 (0) 4 221 92 21</p>
+                    <p>info@visitezliege.be</p>
+                </div>
+                <div class="col-sm-4 adress text-center">
+                    <p>Maison du Tourisme du Pays de Liège<br>Quai de la Goffe <br>4000 Liège</p>
+                </div>
+                <div class="col-sm-4 social text-center">
+                    <a target="_blank" href="https://www.facebook.com/visitliege"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/visitliege/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>    
+            </div>
+        </div>
+        <div class="container-fluid newsletter-background">
+            <div class="row newsletter" style="margin:0 auto;">
+                <div class="col-sm-12 text-center">
+                    <h3>Inscrivez-vous à notre newsletter !</h3>
+                    <input type="email" class="form-control" placeholder="Votre Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                    <button type="submit" class="btn btn-xl send-comment-btn">S'inscrire</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="logo-partners">
+            <ul>
+                <li>
+                    {% image '@EITouristicBundle/Resources/public/images/logo/Liege_Logo.svg.png'
+                        output='/images/logo/Liege_Logo.svg.png' %}
+                        <a href="http://www.liege.be/" target="_blank"><img class="mr10 logo-liege" src="{{ asset_url }}" alt="logo-liege"/> </a>
+                   {% endimage %}
+                        
+                </li>
+                <li>
+                    {% image '@EITouristicBundle/Resources/public/images/logo/liege-together.png'
+                        output='/images/logo/liege-together.png' %}
+                        <a href="http://www.visitezliege.be/sites/default/files/styles/largeur_480/public/cms/logo/lt_official_rgb.jpg?itok=ueLLISPS" target="_blank"><img class="mr10 logo-together" src="{{ asset_url }}" alt="logo-liege-together"/> </a>
+                    {% endimage %}
+                </li>
+                <li>
+                    {% image '@EITouristicBundle/Resources/public/images/logo/Wallonia.png'
+                        output='/images/logo/Wallonia.png' %}
+                        <a href="http://www.visitezliege.be/sites/default/files/styles/largeur_480/public/cms/logo/wallonie.jpg?itok=R_wVLY2o" target="_blank"><img class="mr10 logo-wallonia" src="{{ asset_url }}" alt="logo-wallonia"/> </a>
+                    {% endimage %}
+
+                </li>
+                <li>
+                    {% image '@EITouristicBundle/Resources/public/images/logo/mtliege.jpg'
+                        output='/images/logo/mtliege.jpg' %}
+                        <a href="http://www.visitezliege.be/sites/default/files/styles/largeur_480/public/cms/logo/mtliege.jpg?itok=i3WHa40n" target="_blank"><img class="mr10 logo-tourisme" src="{{ asset_url }}" alt="logo-liege-maison du tourisme"/> </a>
+                   {% endimage %}
+                </li>
+            </ul>
+
+        </div>
+    </footer>
+        
+        <script src="{{asset('bundles/eitouristic/libs/jQuery/jquery-2.2.1.min.js')}}"></script>
+        <script src="{{asset('bundles/eitouristic/libs/bootstrapv3/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('bundles/eitouristic/js/nav.js')}}"></script>
+        <script src="{{asset('bundles/eitouristic/js/scroll.js')}}"></script>
+        {#{% javascripts 'bundles/eitouristic/libs/jQuery/jquery-2.2.1.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        
+        {% javascripts 'bundles/eitouristic/libs/bootstrapv3/js/bootstrap.min.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 'bundles/eitouristic/js/nav.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        
+        {% javascripts 'bundles/eitouristic/js/scroll.js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}#}
+
+    </body>
+</html>
+

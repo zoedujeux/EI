@@ -1,0 +1,36 @@
+{% extends "EITouristicBundle::layout.html.twig" %}
+
+
+{% block contentPage %}
+
+    <section class="section-content" id="section-content">
+        <h1 class="title-underline">Déjeuner, dîner, souper ?</h1>
+
+
+                <div class="container-fluid choicePartDay">
+                    <div class="row mt50">
+                        {% for category in listCategory %}
+                            <div class="col-sm-4 text-center">
+                                
+                                <a href="{{ path('ei_touristic_eat', {whereToId:1}) }}">
+  
+                                        {% if category.image is not null %}
+
+                                            {% for image in category.image%}
+
+                                                    <img class="choiceDayImage" src="{{asset(image.webPath)}}" alt="{{ image.alt }}" />
+                                            {% endfor %}
+                                         {% endif %}
+                      
+                                    
+                                    <p class="choiceText">{{ category.title }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            
+    </section>
+
+{% endblock %}
+

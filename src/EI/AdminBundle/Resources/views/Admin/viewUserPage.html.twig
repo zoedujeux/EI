@@ -1,0 +1,50 @@
+{% extends "EIAdminBundle::layout.html.twig" %}
+
+{% block title %}
+Page utilisateur
+{% endblock %}
+
+{% block content %}
+    
+ <div class="row">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre</th>
+                                        <th>Content</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                        {% for userPage in listUserPage %}
+                                            <tr>
+                                        <td>{{ userPage.id }}</td> 
+                                        <td>{{ userPage.title }}</td> 
+                                        <td>{{ userPage.content }}</td>      
+                                        <td><a href="{{ path('ei_admin_editUserPage', {'id': userPage.id}) }}" id="edit" class="btn btn-success">modifier</a>
+                                            <a href="{{ path('ei_admin_deleteUserPage', {'id': userPage.id}) }}" id="delete" class="btn btn-success">supprimer</a></td>
+
+                                    </tr>
+                                        {% endfor %}
+                                        
+                                        
+                                        
+                                    
+                                </tbody>
+                            </table>
+                                    
+                                    <a href="{{ path('ei_admin_addUserPage') }}" id="create" class="btn btn-success">create new table</a>
+                        </div>
+                    </div>
+     
+     
+     
+ </div>
+
+{% endblock %}
+

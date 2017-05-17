@@ -1,0 +1,60 @@
+#contact {
+    .form-group {
+     margin-bottom: 25px; }
+    .form-group {
+        margin-bottom: 25px;
+        input,
+        textarea {
+            padding: 20px;
+        }
+        input.form-control {
+            height: auto;
+        }
+        textarea.form-control {
+            height: 236px;
+        }
+    }
+    .form-control:focus {
+        border-color: $light-grey;
+        box-shadow: none;
+    }
+    
+    ::-webkit-input-placeholder {
+       font-family: $main-font;
+       text-transform: uppercase;
+       font-weight: 700;
+       color: #eeeeee;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+       font-family: $main-font;
+       text-transform: uppercase;
+       font-weight: 700;
+       color: #eeeeee;
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+       font-family: $main-font;
+       text-transform: uppercase;
+       font-weight: 700;
+       color: #eeeeee;
+    }
+    :-ms-input-placeholder {  
+       font-family: $main-font;
+       text-transform: uppercase;
+       font-weight: 700;
+       color: #eeeeee;
+    }
+    .text-danger {
+       color: #e74c3c;
+    }
+    .send-comment-btn{
+        width: 100%;
+        background-color: $primary-color3;
+        color: #fff;
+        -webkit-transition: .7s; 
+        transition: .7s;
+        &:hover{
+           background-color: $primary-color1;
+        }
+    }
+}
+

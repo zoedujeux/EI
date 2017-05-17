@@ -1,0 +1,46 @@
+{% extends "EIAdminBundle::layout.html.twig" %}
+
+{% block title %}
+ Index
+{% endblock %}
+
+{% block content %}
+    
+ <div class="row">
+                    <div class="col-lg-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Titre principal</th>
+                                        <th>Contenu</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    
+                                        {% for home in listHome %}
+                                        <tr>
+                                        <td>{{ home.id }}</td> 
+                                        <td>{{ home.mainTitle }}</td> 
+                                        <td>{{ home.content }}</td>
+                                        <td><a href="{{ path('ei_admin_editHome', {'id': home.id}) }}" id="edit" class="btn btn-success">modifier</a>
+                                            <a href="{{ path('ei_admin_deleteHome', {'id': home.id}) }}" id="delete" class="btn btn-success">supprimer</a></td>
+
+                                        </tr>
+                                        {% endfor %}    
+                                    
+                                </tbody>
+                            </table>
+                                    
+                                    <a href="{{ path('ei_admin_addHome') }}" id="create" class="btn btn-success">Créer une nouvelle table</a>
+                        </div>
+                    </div>
+     
+ </div>
+                                                                  
+{% endblock %}
+
+

@@ -1,0 +1,99 @@
+{% extends "EITouristicBundle::layout.html.twig" %}
+
+
+{% block contentPage %}
+
+        <div class="section-top">
+   
+            <h1 class="title-underline">{{ articleBR.title }}</h1>
+
+                <div class="arrowBack">
+                    {% image '@EITouristicBundle/Resources/public/images/arrow-left.png'
+                     output='/images/arrow-left.png' %}
+                     <a href="#">
+                         <img class="arrowLeft mr10" src="{{ asset_url }}" alt="arrow-left"/>
+                         <p>Retour menu</p>
+                     </a>
+                {% endimage %}
+                </div>
+
+                <div class="arrowNext">
+                    {% image '@EITouristicBundle/Resources/public/images/arrow-right.png'
+                        output='/images/arrow-right.png' %}
+                        <a href="#">
+                            <img class="arrowRight ml10" src="{{ asset_url }}" alt="arrow-right"/>
+                            <p>Midi</p>
+                        </a>
+                   {% endimage %}
+                </div>
+            <div class="clear"></div>
+        </div>
+
+        <section class="section-bottom section-content" id="section-content">
+            <div class="container-fluid mt50">
+                <div class="row">
+                    <div class="slideshow">
+                        {% if articleBR.images is not null %}
+
+                            {% for image in articleBR.images%}
+                                <div class="row">
+                                    <img class="mySlides" src="{{asset(image.webPath)}}" alt="{{ image.alt }}" style="width:100%" />
+                                </div>
+
+                            {% endfor %}
+                        {% endif %}
+                         
+
+                        <a class="prev" onclick="plusDivs(-1)">&#10094;</a>
+                        <a class="next" onclick="plusDivs(+1)">&#10095;</a>
+                    </div>
+                </div>
+                <h2 class="title-h2-underline">{{ articleBR.title }}</h2>
+
+                <p>{{ articleBR.content|raw }}</p>
+
+                <!--<h2 class="title-h2-underline">Infos</h2>
+                    <h4>Horaires d'ouverture : </h4>
+                        <p>lun-ven: 07:00 - 17:00 sam: 10:00 - 18:00 </p> 
+                    <h4>Adresse :</h4>
+                        <p> 17 rue des carmes, 4000 Liège</p>-->
+            </div>
+
+            <div class="map">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1oR3VmhwMhBDJWouA_qYr9r1ummo" width="100%" height="480"></iframe>
+            </div>
+            <div class="container-fluid mt50">
+                <div id="contact">
+                       <h2 class="title-h2-underline">Commentaires</h2>
+                         <!--<div class="row">
+                             <div class="col-lg-12">
+                                 {#{% for comment in comments %}
+                                    <h4> {{ comment.user }} le <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, F j, Y') }}</time></h4>
+                                    <p> {{ comment.comment }} </p>
+                                 {% endfor %}#}
+                             </div>
+                         </div>-->
+                        {#{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}#}
+                        <div id="fos_comment_thread" data-thread="{{ thread.id }}">
+
+                            {% include 'FOSCommentBundle:Thread:comments.html.twig' with {
+                                'comments': comments,
+                                'thread': thread
+                            } %}
+
+                        </div>
+                </div>
+            </div>
+
+        </section>
+
+{% endblock %}
+
+{% block javascript %}
+{# jQuery must be available in the page by this time, and make sure javascript block is after
+  <div id="fos_comment_thread"> in the DOM Tree, for example right before </body> tag
+#}
+{% javascripts '@FOSCommentBundle/Resources/public/js/comments.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock javascript %}

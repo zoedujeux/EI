@@ -1,0 +1,38 @@
+{% extends "EITouristicBundle::layout.html.twig" %}
+
+
+{% block contentPage %}
+                          
+<div class="section-top">
+        <h1 class="title-underline">{{ articleEvent.title }}</h1>
+    </div>
+        
+    <section class="section-bottom section-content" id="section-content">
+        <div class="container-fluid mt50">
+            <div class="row">
+                <div class="slideshow">
+                    {% if articleEvent.images is not null %}
+
+                        {% for image in articleEvent.images%}    
+                                <img class="mySlides" src="{{asset(image.webPath)}}" alt="{{ image.alt }}" style="width:100%"> 
+                        {% endfor %}
+                     {% endif %}
+
+                    <a class="prev" onclick="plusDivs(-1)">&#10094;</a>
+                    <a class="next" onclick="plusDivs(+1)">&#10095;</a>
+                </div>
+            </div>
+            
+            <h2 class="title-h2-underline">{{ articleEvent.title }}</h2>
+            
+            <p>{{ articleEvent.content }}</p>
+
+            <h2 class="title-h2-underline">Infos</h2>
+                <h4>Horaires d'ouverture : </h4>
+                    <p>lun-ven: 07:00 - 17:00 sam: 10:00 - 18:00 </p> 
+                <h4>Adresse :</h4>
+                    <p>Place Saint-Lambert, 4000 Liège</p>
+        </div>
+    </section>
+
+{% endblock %}

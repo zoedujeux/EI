@@ -1,0 +1,20 @@
+{% extends "EIAdminBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier l'évenement
+{% endblock %}
+
+{% block content %}
+
+
+  {{ include("EIAdminBundle:Admin:form.html.twig") }}
+
+
+  <p>
+    <a href="{{ path('ei_admin_viewEvent', {'id': event.id}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour 
+    </a>
+  </p>
+
+{% endblock %}
