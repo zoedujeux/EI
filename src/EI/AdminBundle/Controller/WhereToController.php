@@ -30,7 +30,9 @@ class WhereToController extends Controller
 
         
         if ($form->handleRequest($request)->isValid()) {
-             
+             foreach ($whereTo->getBrs() as $br){
+                 $br->addWhereTo($whereTo);
+             }
            $em = $this->getDoctrine()->getManager();
             $em->persist($whereTo);
             $em->flush();

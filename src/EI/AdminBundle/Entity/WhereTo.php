@@ -38,7 +38,7 @@ class WhereTo
 //     */
     /**
      *
-     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\BR", mappedBy="whereTos")
+     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\BR", mappedBy="whereTos",cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="id", nullable=true)    
      */
     private $brs;
