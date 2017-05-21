@@ -19,6 +19,7 @@ class WhereToType extends AbstractType
         $builder
             ->add('title',     TextType::class)
             ->add('brs',  EntityType::class,['class'=>  \EI\AdminBundle\Entity\BR::class,'multiple'=>true]) 
+            ->add('categories',  EntityType::class,['class'=>  \EI\AdminBundle\Entity\Category::class,'multiple'=>true])
             ->add('save',      SubmitType::class)    
             ;
         

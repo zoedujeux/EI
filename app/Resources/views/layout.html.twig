@@ -63,13 +63,13 @@
                     <a href="{{ path('ei_touristic_home') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_home' %} menu__link--current{% endif %}">Accueil</a>
                 </li>
                 <li class="menu__item {% if app.request.attributes.get('_route') == 'ei_touristic_eatChoice' %}menu__item--current{% endif %}">
-                    <a href="{{ path('ei_touristic_eatChoice') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_eatChoice' %} menu__link--current{% endif %}">Où manger</a>
+                    <a href="{{ path('ei_touristic_whereTo', {whereToId:1}) }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_eatChoice' %} menu__link--current{% endif %}">Où manger</a>
                 </li>
                 <li class="menu__item {% if app.request.attributes.get('_route') == 'ei_touristic_drinkChoice' %}menu__item--current{% endif %}">
-                    <a href="{{ path('ei_touristic_drinkChoice') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_drinkChoice' %} menu__link--current{% endif %}">Où boire un verre</a>
+                    <a href="{{ path('ei_touristic_whereTo', {whereToId:2}) }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_drinkChoice' %} menu__link--current{% endif %}">Où boire un verre</a>
                 </li>
                 <li class="menu__item{% if app.request.attributes.get('_route') == 'ei_touristic_journeyChoice' %}menu__item--current{% endif %}">
-                    <a href="{{ path('ei_touristic_journeyChoice') }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_journeyChoice' %} menu__link--current{% endif %}">Parcours thématique</a>
+                    <a href="{{ path('ei_touristic_whereTo', {whereToId:3}) }}" class="menu__link {% if app.request.attributes.get('_route') == 'ei_touristic_journeyChoice' %} menu__link--current{% endif %}">Parcours thématique</a>
                 </li>
             </ul> 
         </nav>
@@ -104,9 +104,10 @@
             <div class="row newsletter" style="margin:0 auto;">
                 <div class="col-sm-12 text-center">
                     <h3>Inscrivez-vous à notre newsletter !</h3>
+                    <form action="action" method="">
                     <input type="email" class="form-control" placeholder="Votre Email *" id="email" required data-validation-required-message="Please enter your email address.">
                     <button type="submit" class="btn btn-xl send-comment-btn">S'inscrire</button>
-
+                    </form>
                 </div>
             </div>
         </div>

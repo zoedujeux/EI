@@ -121,189 +121,49 @@ class ArticleController extends Controller
 
     }
     
-    public function eatChoiceAction()
+    public function whereToAction($whereToId)
     {
-         
-         $listCategory= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Category')
-            ->findAll()
-          ;
-         
-         $listWhereTo= $this->getDoctrine()
+         $whereTo  = $this->getDoctrine()
             ->getManager()
             ->getRepository('EIAdminBundle:WhereTo')
-            ->findAll()
-        ;
-         
-          $image = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Image')
-            ->findAll()
+            ->myFindOne($whereToId)
           ;
          
-          return $this->render('EITouristicBundle:Article:eatChoice.html.twig', array (
-              "listCategory"    =>$listCategory, 
-              "listWhereTo"    =>$listWhereTo,
-              "image"    =>$image,
+         $listCategoryWithWhereTo = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('EIAdminBundle:WhereTo')
+            ->getWhereToWithCategory()
+          ;
+         
+          return $this->render('EITouristicBundle:Article:whereToView.html.twig', array (
+              "whereTo"    =>$whereTo, 
+              "listCategoryWithWhereTo"    =>$listCategoryWithWhereTo,
+          ));
+        
+    }
+    
+    public function categoryAction($id)
+    {
+         
+        $category= $this->getDoctrine()
+            ->getManager()
+            ->getRepository('EIAdminBundle:Category')
+            ->myFindOne($id)
+        ;
+         
+        $listBrWithCategory= $this->getDoctrine()
+            ->getManager()
+            ->getRepository('EIAdminBundle:Category')
+            ->getCategoryWithBR()
+        ;
+         
+          return $this->render('EITouristicBundle:Article:category.html.twig', array (
+              "category"    =>$category,
+              "listBrWithCategory"    =>$listBrWithCategory,
           ));
 
     }
-    
-//    public function eatAction($category,$whereTo)
-    public function eatAction()
-    {
-        
-//        $category= $this->getDoctrine()
-//            ->getManager()
-//            ->getRepository('EIAdminBundle:Category')
-//            ->find($id)
-//          ;
        
-         $listBR= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:BR')
-//            ->getBRWithCategory(['category'=>$category])
-            ->findAll()
-          ;
-         
-//        $listBR= $this->getDoctrine()
-//            ->getManager()
-//            ->getRepository('EIAdminBundle:BR')
-//            ->findAll()
-//          ;
-         
-        $image = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Image')
-            ->findAll()
-          ;
-
-          return $this->render('EITouristicBundle:Article:eat.html.twig', array (
-//              "category"    =>$category,  
-              "listBR"    =>$listBR,
-              "image"    =>$image,
-          ));
-
-    }
-    
-     public function drinkChoiceAction()
-    {
-         
-         $listCategory= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Category')
-            ->findAll()
-          ;
-         
-         $listWhereTo= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:WhereTo')
-            ->findAll()
-        ;
-         
-        $image = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Image')
-            ->findAll()
-          ;
-         
-          return $this->render('EITouristicBundle:Article:drinkChoice.html.twig', array (
-              "listCategory"    =>$listCategory, 
-              "listWhereTo"    =>$listWhereTo,
-              "image"    =>$image,
-          ));
-
-    }
-    
-    public function drinkAction()
-    {
-         $listCategory= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Category')
-            ->findAll()
-          ;
-         
-         $listBR= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:BR')
-            ->findAll()
-          ;
-        
-        $image = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Image')
-            ->findAll()
-          ;
-
-          return $this->render('EITouristicBundle:Article:drink.html.twig', array (
-              "listCategory"    =>$listCategory,  
-              "listBR"    =>$listBR,
-              "image"    =>$image,
-          ));
-
-    }
-    
-    public function journeyChoiceAction()
-    {
-         
-         $listCategory= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Category')
-            ->findAll()
-          ;
-         
-         $listWhereTo= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:WhereTo')
-            ->findAll()
-        ;
-         
-          $image = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Image')
-            ->findAll()
-          ;
-         
-          return $this->render('EITouristicBundle:Article:journeyChoice.html.twig', array (
-              "listCategory"    =>$listCategory, 
-              "listWhereTo"    =>$listWhereTo,
-              "image"    =>$image,
-          ));
-
-    }
-    
-
-    public function journeyAction()
-    {
-        
-        $listCategory= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Category')
-            ->findAll()
-          ;
-       
-         
-        $listBR= $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:BR')
-            ->findAll()
-          ;
-         
-        $image = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('EIAdminBundle:Image')
-            ->findAll()
-          ;
-
-          return $this->render('EITouristicBundle:Article:journey.html.twig', array (
-              "listCategory"    =>$listCategory,  
-              "listBR"    =>$listBR,
-              "image"    =>$image,
-          ));
-
-    }
-    
      public function viewUserPageAction()
      {
           
@@ -357,5 +217,12 @@ class ArticleController extends Controller
         ));
 
     }
+    
+//    public function translationAction($name)
+//    {
+//      return $this->render('EITouristicBundle:Article:translation.html.twig', array(
+//        'name' => $name
+//      ));
+//    }
   
 }

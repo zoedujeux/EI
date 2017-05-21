@@ -46,6 +46,13 @@ class Category
     * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
     */
      private $brs;
+     
+    
+    /**
+    * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\WhereTo", mappedBy="categories")
+    * @ORM\JoinColumn(referencedColumnName="id", nullable=true)   
+    */
+     private $wheretos;
     
     public function __toString(){
         return $this->title;
@@ -57,6 +64,7 @@ class Category
     public function __construct()
     {
         $this->brs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->wheretos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -68,6 +76,7 @@ class Category
     {
         return $this->id;
     }
+    
 
     /**
      * Set title
@@ -198,5 +207,39 @@ class Category
     public function getBrs()
     {
         return $this->brs;
+    }
+
+    /**
+     * Add whereto
+     *
+     * @param \EI\AdminBundle\Entity\WhereTo $whereto
+     *
+     * @return Category
+     */
+    public function addWhereto(\EI\AdminBundle\Entity\WhereTo $whereto)
+    {
+        $this->wheretos[] = $whereto;
+
+        return $this;
+    }
+
+    /**
+     * Remove whereto
+     *
+     * @param \EI\AdminBundle\Entity\WhereTo $whereto
+     */
+    public function removeWhereto(\EI\AdminBundle\Entity\WhereTo $whereto)
+    {
+        $this->wheretos->removeElement($whereto);
+    }
+
+    /**
+     * Get wheretos
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWheretos()
+    {
+        return $this->wheretos;
     }
 }

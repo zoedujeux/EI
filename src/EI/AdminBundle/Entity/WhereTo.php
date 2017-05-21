@@ -29,19 +29,20 @@ class WhereTo
      */
     private $title;
 
-
-    
-//    /**
-//     *
-//     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\BR", cascade={"persist"},inversedBy="whereTos")
-//     *     
-//     */
     /**
      *
      * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\BR", mappedBy="whereTos",cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="id", nullable=true)    
      */
     private $brs;
+    
+    /**
+    * @var string
+    *
+    * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\Category", inversedBy="wheretos")
+    * @ORM\JoinColumn(referencedColumnName="id", nullable=true)   
+    */
+    private $categories;
     
    
     public function __toString(){
@@ -51,6 +52,7 @@ class WhereTo
     public function __construct()
     {
       $this->brs = new ArrayCollection();
+      $this->categories = new ArrayCollection();
     }
 
     /**
@@ -169,4 +171,39 @@ class WhereTo
         return $this->br;
     }
 
+
+    /**
+     * Add category
+     *
+     * @param \EI\AdminBundle\Entity\Category $category
+     *
+     * @return WhereTo
+     */
+    public function addCategory(\EI\AdminBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+        $category->setWhereTo($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \EI\AdminBundle\Entity\Category $category
+     */
+    public function removeCategory(\EI\AdminBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
 }

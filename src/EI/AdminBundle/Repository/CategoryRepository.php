@@ -25,22 +25,33 @@ class CategoryRepository extends \Doctrine\ORM\EntityRepository
       return $results;
     }
     
-//    public function myFindOne($categoryId)
-//    {
-//      $qb = $this->createQueryBuilder('c');
-//
-//      $qb
-//        ->where('c.id = :categoryId')
-//        ->setParameter('categoryId', $categoryId)
-//        ->leftJoin('c.brs', 'brs')
-//              ->addSelect('brs')
-//      ;
-//
-//      return $qb
-//        ->getQuery()
-//        ->getOneOrNullResult()
-//      ;
-//    }
+    public function myFindOne($categoryId)
+    {
+      $qb = $this->createQueryBuilder('c');
+
+      $qb
+        ->where('c.id = :categoryId')
+        ->setParameter('categoryId', $categoryId)
+      ;
+
+      return $qb
+        ->getQuery()
+        ->getOneOrNullResult()
+      ;
+    }
+    
+    public function getCategoryWithBR()
+    {
+      $qb = $this ->createQueryBuilder('cat');
+
+      $qb->leftJoin('cat.brs', 'brs')
+      ->addSelect('brs');
+
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+    }
     
      public function getCategoryWithImages(array $imageNames)
     {

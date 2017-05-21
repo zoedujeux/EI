@@ -33,6 +33,9 @@ class WhereToController extends Controller
              foreach ($whereTo->getBrs() as $br){
                  $br->addWhereTo($whereTo);
              }
+              foreach ($whereTo->getCategories() as $category){
+                 $category->addWhereTo($whereTo);
+             }
            $em = $this->getDoctrine()->getManager();
             $em->persist($whereTo);
             $em->flush();

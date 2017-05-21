@@ -46,11 +46,25 @@ class Category
     * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
     */
      private $brs;
+     
+    
+    /**
+    * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\WhereTo", mappedBy="categories")
+    * @ORM\JoinColumn(referencedColumnName="id", nullable=true)
+    */
+     private $wheretos;
     
     public function __toString(){
         return $this->title;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->brs = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -156,5 +170,40 @@ class Category
     public function getBr()
     {
         return $this->br;
+    }
+
+
+    /**
+     * Add br
+     *
+     * @param \EI\AdminBundle\Entity\BR $br
+     *
+     * @return Category
+     */
+    public function addBr(\EI\AdminBundle\Entity\BR $br)
+    {
+        $this->brs[] = $br;
+
+        return $this;
+    }
+
+    /**
+     * Remove br
+     *
+     * @param \EI\AdminBundle\Entity\BR $br
+     */
+    public function removeBr(\EI\AdminBundle\Entity\BR $br)
+    {
+        $this->brs->removeElement($br);
+    }
+
+    /**
+     * Get brs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBrs()
+    {
+        return $this->brs;
     }
 }

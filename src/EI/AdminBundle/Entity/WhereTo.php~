@@ -29,19 +29,19 @@ class WhereTo
      */
     private $title;
 
-
-    
-//    /**
-//     *
-//     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\BR", cascade={"persist"},inversedBy="whereTos")
-//     *     
-//     */
     /**
      *
-     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\BR", mappedBy="whereTos")
+     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\BR", mappedBy="whereTos",cascade={"persist"})
      * @ORM\JoinColumn(referencedColumnName="id", nullable=true)    
      */
     private $brs;
+    
+    /**
+    * @var string
+    *
+    * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\Category", inversedBy="wheretos", cascade={"all"})
+    */
+    private $categories;
     
    
     public function __toString(){
@@ -63,10 +63,8 @@ class WhereTo
     public function addBr(\EI\AdminBundle\Entity\BR $br)
     {
       $this->brs[] = $br;
-      
-//      $br->setWhereTo($this);
-//
-//      return $this;
+
+      return $this;
     }
 
     /**
@@ -145,6 +143,30 @@ class WhereTo
     public function getWhereToId()
     {
         return $this->whereToId;
+    }
+    
+    /**
+     * Set br
+     *
+     * @param \EI\AdminBundle\Entity\BR $br
+     *
+     * @return Category
+     */
+    public function setBr(\EI\AdminBundle\Entity\BR $br = null)
+    {
+        $this->br = $br;
+
+        return $this;
+    }
+
+    /**
+     * Get br
+     *
+     * @return \EI\AdminBundle\Entity\BR
+     */
+    public function getBr()
+    {
+        return $this->br;
     }
 
 }

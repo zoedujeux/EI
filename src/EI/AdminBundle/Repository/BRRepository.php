@@ -2,8 +2,8 @@
 
 namespace EI\AdminBundle\Repository;
 
-use \EI\AdminBundle\Entity\Category;
-use \EI\AdminBundle\Entity\WhereTo;
+//use EI\AdminBundle\Entity\Category;
+//use EI\AdminBundle\Entity\WhereTo;
 
 /**
  * BRRepository
@@ -13,43 +13,39 @@ use \EI\AdminBundle\Entity\WhereTo;
  */
 class BRRepository extends \Doctrine\ORM\EntityRepository
 {
+ 
+//    public function findByCategoryAndWhereTo(Category $category, WhereTo $whereTo){
+//        $qb = $this->createQueryBuilder('br');
+//        
+//        $qb->leftJoin('br.categories','categories')
+//                ->where('categories.id = :catId')
+//                ->setParameter('catId',$category->getId());
+//                
+//        $qb->leftJoin('br.whereTos','whereTos')
+//                ->where('whereTos.id = :whereTosId')
+//                ->setParameter('whereTosId',$whereTo->getId())
+//                
+//                ;
+//        
+//        return $qb->getQuery()->getResult(); 
+//        
+//    }
     
-    public function findByCategoryAndWhereTo(Category $category, WhereTo $whereTo){
-        $qb = $this->createQueryBuilder('br');
-        
-        $qb->leftJoin('br.categories','categories')
-                ->where('categories.id = :catId')
-                ->setParameter('catId',$category->getId());
-                
-        $qb->leftJoin('br.whereTos','whereTos')
-                ->where('whereTos.id = :whereTosId')
-                ->setParameter('whereTosId',$whereTo->getId())
-                
-                ;
-        
-        return $qb->getQuery()->getResult(); 
-        
-    }
+ public function getBRWithCategoryAndWhereTo()
+  {
+    $qb = $this ->createQueryBuilder('br');
     
-// public function getBRWithCategory($limit)
-//  {
-//    $qb = $this->createQueryBuilder('c');
-//
-//
-//    $qb
-//      ->join('c.category', 'cat')
-//      ->addSelect('cat')
-//    ;
-//
-//    // Puis on ne retourne que $limit résultats
-//    $qb->setMaxResults($limit);
-//
-//    // Enfin, on retourne le résultat
-//    return $qb
-//      ->getQuery()
-//      ->getResult()
-//      ;
-//  }
+    $qb->leftJoin('br.categories', 'cat')
+    ->addSelect('cat');
+     
+    $qb->leftJoin('br.whereTos', 'whe')
+    ->addSelect('whe');
+
+  return $qb
+    ->getQuery()
+    ->getResult()
+  ;
+  }
   
 public function myFindAll()
 {

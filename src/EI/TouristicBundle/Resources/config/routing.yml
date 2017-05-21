@@ -1,30 +1,42 @@
 ei_touristic_home:
     path:     /index
-    defaults: { _controller: EITouristicBundle:Article:index }
+    defaults: { _controller: EITouristicBundle:Article:index}
     
-ei_touristic_eatChoice:
-    path:     /eatChoice
-    defaults: { _controller: EITouristicBundle:Article:eatChoice }
+ei_touristic_whereTo:
+    path:     /whereTo/{whereToId}
+    defaults: { _controller: EITouristicBundle:Article:whereTo}
     
-ei_touristic_eat:
-    path:     /eat
-    defaults: { _controller: EITouristicBundle:Article:eat }
-
-ei_touristic_drinkChoice:
-    path:     /drinkChoice
-    defaults: { _controller: EITouristicBundle:Article:drinkChoice }
+ei_touristic_category:
+    path:     /category/{id}
+    defaults: { _controller: EITouristicBundle:Article:category }
     
-ei_touristic_drink:
-    path:     /drink
-    defaults: { _controller: EITouristicBundle:Article:drink }
+#ei_touristic_br:
+#    path:     /br
+#    defaults: { _controller: EITouristicBundle:Article:br }
     
-ei_touristic_journeyChoice:
-    path:     /journeyChoice
-    defaults: { _controller: EITouristicBundle:Article:journeyChoice }
-    
-ei_touristic_journey:
-    path:     /journey
-    defaults: { _controller: EITouristicBundle:Article:journey }
+#ei_touristic_eatChoice:
+#    path:     /eatChoice
+#    defaults: { _controller: EITouristicBundle:Article:eatChoice }
+#    
+#ei_touristic_eat:
+#    path:     /eat
+#    defaults: { _controller: EITouristicBundle:Article:eat }
+#
+#ei_touristic_drinkChoice:
+#    path:     /drinkChoice
+#    defaults: { _controller: EITouristicBundle:Article:drinkChoice }
+#    
+#ei_touristic_drink:
+#    path:     /drink
+#    defaults: { _controller: EITouristicBundle:Article:drink }
+#    
+#ei_touristic_journeyChoice:
+#    path:     /journeyChoice
+#    defaults: { _controller: EITouristicBundle:Article:journeyChoice }
+#    
+#ei_touristic_journey:
+#    path:     /journey
+#    defaults: { _controller: EITouristicBundle:Article:journey }
     
 ei_touristic_viewMoreEvent:
     path:     /viewMoreEvent/{id}

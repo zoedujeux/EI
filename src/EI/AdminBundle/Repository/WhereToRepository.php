@@ -41,4 +41,18 @@ class WhereToRepository extends \Doctrine\ORM\EntityRepository
         ->getOneOrNullResult()
       ;
     }
+    
+     public function getWhereToWithCategory()
+  {
+    $qb = $this ->createQueryBuilder('whe');
+    
+    $qb->leftJoin('whe.categories', 'cat')
+    ->addSelect('cat');
+
+  return $qb
+    ->getQuery()
+    ->getResult()
+  ;
+  }
+  
 }

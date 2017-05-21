@@ -2,26 +2,21 @@
 
 
 {% block contentPage %}
-{% for whereTo in whereTo %}
     <section class="section-content" id="section-content">
-        <h1 class="title-underline">Déjeuner, dîner, souper ?</h1>
+        <h1 class="title-underline">{{ whereTo.title }}</h1>
 
 
                 <div class="container-fluid choicePartDay">
                     <div class="row mt50">
                         {% for category in whereTo.categories %}
                             <div class="col-sm-4 text-center">
-                                <a href="{{ path('ei_touristic_eat') }}">
-                                  
-                                        {% if category.image is not null %}
-
+                                <a href="{{ path('ei_touristic_category', {'id': category.id}) }}">
+                                 
                                             {% for image in category.image%}
 
                                                     <img class="choiceDayImage" src="{{asset(image.webPath)}}" alt="{{ image.alt }}" />
                                             {% endfor %}
-                                         {% endif %}
-                                 
-                                    
+
                                     <p class="choiceText">{{ category.title }}</p>
                                     
                                 </a>
@@ -32,6 +27,7 @@
                 </div>
 
     </section>
-{% endfor %}
+{#{% endfor %}#}
 {% endblock %}
+
 
