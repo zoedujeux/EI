@@ -5,8 +5,7 @@ ei_admin:
 ei_touristic:
     resource: "@EITouristicBundle/Resources/config/routing.yml"
     prefix:   /
-
-
+    
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -31,3 +30,4 @@ fos_comment_api:
     resource: "@FOSCommentBundle/Resources/config/routing.yml"
     prefix: /api
     defaults: { _format: html }
+    

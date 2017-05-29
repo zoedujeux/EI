@@ -10,6 +10,11 @@ ei_touristic_category:
     path:     /category/{id}
     defaults: { _controller: EITouristicBundle:Article:category }
     
+ei_touristic_newsletter:
+    path:     /newsletter
+    defaults: { _controller: EITouristicBundle:Newsletter:mailChimp }
+    methods: [post]
+    
 #ei_touristic_br:
 #    path:     /br
 #    defaults: { _controller: EITouristicBundle:Article:br }

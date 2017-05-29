@@ -104,9 +104,10 @@
             <div class="row newsletter" style="margin:0 auto;">
                 <div class="col-sm-12 text-center">
                     <h3>Inscrivez-vous à notre newsletter !</h3>
-                    <form action="action" method="">
-                    <input type="email" class="form-control" placeholder="Votre Email *" id="email" required data-validation-required-message="Please enter your email address.">
-                    <button type="submit" class="btn btn-xl send-comment-btn">S'inscrire</button>
+                    <form id="newsletterForm" action="{{path('ei_touristic_newsletter')}}" method="post">
+                    <!--<input type="email" class="form-control" placeholder="Votre Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                    <button type="submit" id="envoyer" value="Envoyer" class="btn btn-xl send-comment-btn">S'inscrire</button>-->
+                    {#{{ include("EITouristicBundle:Article:form.html.twig") }}#}
                     </form>
                 </div>
             </div>
@@ -148,6 +149,7 @@
         <script src="{{asset('bundles/eitouristic/libs/bootstrapv3/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('bundles/eitouristic/js/nav.js')}}"></script>
         <script src="{{asset('bundles/eitouristic/js/scroll.js')}}"></script>
+        <script src="{{asset('bundles/eitouristic/js/newsletter.js')}}"></script>
         {#{% javascripts 'bundles/eitouristic/libs/jQuery/jquery-2.2.1.min.js' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

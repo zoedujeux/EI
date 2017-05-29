@@ -56,14 +56,12 @@ class AdminController extends Controller
     public function addHomeAction(Request $request)
     {
         $home = new Home();
-//        $event = new Event();
         $form = $this->get('form.factory')->create(HomeType::class, $home);
         
       
         if ($form->handleRequest($request)->isValid()) {
         $em = $this->getDoctrine()->getManager();
         $em->persist($home);
-//        $em->persist($event);
         $em->flush();
 
         $request->getSession()->getFlashBag()->add('notice', ' Bien ajouté.');
@@ -77,7 +75,6 @@ class AdminController extends Controller
       return $this->render('EIAdminBundle:Admin:addHome.html.twig', array(
         'form' => $form->createView(),
         'home' => $home,
-//        'event' => $event
       ));
     }
     
