@@ -4,7 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp/www/EI/src/EI/TouristicBundle/Controller/ArticleController.php</file>
+            <file>file:/C:/wamp/www/EI/src/EI/TouristicBundle/Resources/views/Article/viewMoreBR.html.twig</file>
             <file>file:/C:/wamp/www/EI/src/EI/AdminBundle/Repository/CategoryRepository.php</file>
+            <file>file:/C:/wamp/www/EI/src/EI/TouristicBundle/Resources/views/Article/whereToView.html.twig</file>
             <file>file:/C:/wamp/www/EI/src/EI/AdminBundle/Repository/BRRepository.php</file>
             <file>file:/C:/wamp/www/EI/src/EI/AdminBundle/Entity/Category.php</file>
         </group>

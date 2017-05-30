@@ -20,7 +20,7 @@ class Thread extends BaseThread
      * @ORM\Id
      */
     protected $id;
-
+    
 
     /**
      * Get id

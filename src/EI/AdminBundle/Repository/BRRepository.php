@@ -47,6 +47,19 @@ class BRRepository extends \Doctrine\ORM\EntityRepository
   ;
   }
   
+   public function getBRWithComment()
+  {
+    $qb = $this ->createQueryBuilder('br');
+    
+    $qb->leftJoin('br.comments', 'com')
+    ->addSelect('com');
+
+  return $qb
+    ->getQuery()
+    ->getResult()
+  ;
+  }
+  
 public function myFindAll()
 {
 

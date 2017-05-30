@@ -39,7 +39,6 @@
                                 <div class="row">
                                     <img class="mySlides" src="{{asset(image.webPath)}}" alt="{{ image.alt }}" style="width:100%" />
                                 </div>
-
                             {% endfor %}
                         {% endif %}
                          
@@ -65,23 +64,14 @@
             <div class="container-fluid mt50">
                 <div id="contact">
                        <h2 class="title-h2-underline">Commentaires</h2>
-                         <!--<div class="row">
+                         <div class="row">
                              <div class="col-lg-12">
-                                 {#{% for comment in comments %}
-                                    <h4> {{ comment.user }} le <time datetime="{{ comment.created|date('c') }}">{{ comment.created|date('l, F j, Y') }}</time></h4>
-                                    <p> {{ comment.comment }} </p>
-                                 {% endfor %}#}
+                                {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': articleBR } %} 
                              </div>
-                         </div>-->
-                        {#{% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}#}
-                        <div id="fos_comment_thread" data-thread="{{ thread.id }}">
+                         </div>
 
-                            {% include 'FOSCommentBundle:Thread:comments.html.twig' with {
-                                'comments': comments,
-                                'thread': thread
-                            } %}
+                            
 
-                        </div>
                 </div>
             </div>
 

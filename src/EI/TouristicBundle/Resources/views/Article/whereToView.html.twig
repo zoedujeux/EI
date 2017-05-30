@@ -12,10 +12,11 @@
                             <div class="col-sm-4 text-center">
                                 <a href="{{ path('ei_touristic_category', {'id': category.id}) }}">
                                  
-                                            {% for image in category.image%}
 
-                                                    <img class="choiceDayImage" src="{{asset(image.webPath)}}" alt="{{ image.alt }}" />
-                                            {% endfor %}
+                                            {% if category.image is not null %}
+                                                
+                                                 <img class="choiceDayImage" src="{{asset(category.image.webPath)}}" alt="{{ category.image.alt }}" />
+                                              {% endif %}
 
                                     <p class="choiceText">{{ category.title }}</p>
                                     

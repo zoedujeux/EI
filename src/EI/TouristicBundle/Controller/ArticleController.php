@@ -134,25 +134,26 @@ class ArticleController extends Controller
             ->getRepository('EIAdminBundle:Image')
             ->findAll()
           ;
-
-        $id = 'thread_id';
-        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
-        if (null === $thread) {
-            $thread = $this->container->get('fos_comment.manager.thread')->createThread();
-            $thread->setId($id);
-            $thread->setPermalink($request->getUri());
-
-            // Add the thread
-            $this->container->get('fos_comment.manager.thread')->saveThread($thread);
-        }
-
-        $comments = $this->container->get('fos_comment.manager.comment')->findCommentTreeByThread($thread);
+//
+//
+//        $id = 'thread_id';
+//        $thread = $this->container->get('fos_comment.manager.thread')->findThreadById($id);
+//        if (null === $thread) {
+//            $thread = $this->container->get('fos_comment.manager.thread')->createThread();
+//            $thread->setId($id);
+//            $thread->setPermalink($request->getUri());
+//
+//            // Add the thread
+//            $this->container->get('fos_comment.manager.thread')->saveThread($thread);
+//        }
+//
+//        $comments = $this->container->get('fos_comment.manager.comment')->findCommentTreeByThread($thread);
         
         return $this->render('EITouristicBundle:Article:viewMoreBR.html.twig', array (
             "articleBR"    =>$articleBR,
             "image"    =>$image,
-            'comments' => $comments,
-            'thread' => $thread,
+//            'comments' => $comments,
+//            'thread' => $thread,
         ));
 
     }

@@ -51,8 +51,8 @@ class BR
     private $categories;    
     
     /**
-     *
-     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\WhereTo", inversedBy="brs")
+     * @var string
+     * @ORM\ManyToMany(targetEntity="EI\AdminBundle\Entity\WhereTo", inversedBy="brs", cascade={"all"})
      * 
      */
     private $whereTos;
@@ -61,6 +61,11 @@ class BR
      * @ORM\OneToMany(targetEntity="EI\TouristicBundle\Entity\Comment", mappedBy="br")
      */
     protected $comments;
+    
+    /**
+    * @ORM\OneToOne(targetEntity="EI\TouristicBundle\Entity\Thread", cascade={"persist"})
+    */
+    private $thread;
     
     public function __toString(){
         return $this->title;

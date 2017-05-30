@@ -62,6 +62,11 @@ class BR
      */
     protected $comments;
     
+//    /**
+//    * @ORM\OneToOne(targetEntity="EI\TouristicBundle\Entity\Thread", cascade={"persist"})
+//    */
+//    private $thread;
+    
     public function __toString(){
         return $this->title;
     }
@@ -278,4 +283,28 @@ class BR
     {
         return $this->comments;
     }
+
+//    /**
+//     * Set thread
+//     *
+//     * @param \EI\TouristicBundle\Entity\Thread $thread
+//     *
+//     * @return BR
+//     */
+//    public function setThread(\EI\TouristicBundle\Entity\Thread $thread = null)
+//    {
+//        $this->thread = $thread;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get thread
+//     *
+//     * @return \EI\TouristicBundle\Entity\Thread
+//     */
+//    public function getThread()
+//    {
+//        return $this->thread;
+//    }
 }
